@@ -1,0 +1,160 @@
+{
+  "checkedOn": "2026-11-06",
+  "summary": {
+    "checked": 21,
+    "included": 7,
+    "unavailable": 12,
+    "screenshotBlocked": 2
+  },
+  "screenshotMethod": "User-provided screenshots supplied on 2026-11-06, matched to the seven included websites.",
+  "websites": [
+    {
+      "name": "Bannucci LLC",
+      "url": "https://bannuccillc.com/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured.",
+      "finalUrl": "https://www.bannuccillc.com/"
+    },
+    {
+      "name": "Al Akhtar Marketing",
+      "url": "https://alakhtarmarketing.pk/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "HM Diagnostics & Clinics",
+      "url": "https://hmdiagnosticsandclinics.com/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "Pro Consulting",
+      "url": "https://proconsulting.uk/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "Anwar Ul Quran",
+      "url": "https://anwar-ul-quran.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "Land Partners",
+      "url": "https://landpartners.com.pk/wp/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)>"
+    },
+    {
+      "name": "Century 23 Marketing",
+      "url": "https://www.century23marketing.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "The Night Rest Room",
+      "url": "https://thenightrestroom.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "Jaffer",
+      "url": "https://jaffer.com/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "Hawks Merchants",
+      "url": "https://hawksmerchants.com/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "East West Corporation",
+      "url": "https://ewc.com.pk/",
+      "result": "included",
+      "httpStatus": 200,
+      "reason": "Page loaded and a real homepage screenshot was captured."
+    },
+    {
+      "name": "Al Akhtar Marketing",
+      "url": "https://alakhtarmarketing.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "ZN Engineerings",
+      "url": "https://znengineerings.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "Wills Pharmacy",
+      "url": "https://willspharmacy.co.uk/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "name": "KBRC Gulf",
+      "url": "https://kbrcgulf.com/",
+      "result": "screenshot-blocked",
+      "httpStatus": 200,
+      "reason": "Site returned content, but the screenshot renderer received a browser-verification interstitial. Alternate screenshot service also refused the request."
+    },
+    {
+      "name": "Realtor Lead",
+      "url": "https://realtorlead.us/",
+      "result": "unavailable",
+      "httpStatus": 500,
+      "reason": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "name": "Petnosh",
+      "url": "https://petnosh.org/",
+      "result": "screenshot-blocked",
+      "httpStatus": 200,
+      "reason": "Site returned content, but the screenshot renderer received a browser-verification interstitial. Alternate screenshot service also refused the request."
+    },
+    {
+      "name": "ZRK FAM Group",
+      "url": "https://zrkfamgroup.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)>"
+    },
+    {
+      "name": "KBRC Pakistan",
+      "url": "https://mediumblue-spider-685636.hostingersite.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "[Errno 54] Connection reset by peer"
+    },
+    {
+      "name": "Mamacita",
+      "url": "https://mamacita-fashion.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1129)>"
+    },
+    {
+      "name": "Holistic Care Botanicals",
+      "url": "https://holisticcarebotanicals.com/",
+      "result": "unavailable",
+      "httpStatus": null,
+      "reason": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    }
+  ]
+}

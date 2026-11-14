@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import { WorkGrid } from "@/components/work-grid";
+import { PageIntro } from "@/components/ui";
+import { ContactCTA } from "@/components/footer";
+import { ClientCollaborations } from "@/components/client-collaborations";
+import { GitHubRepositories } from "@/components/github-repositories";
+import { SocialPostGallery } from "@/components/social-post-gallery";
+import { AnimationShowcase } from "@/components/animation-showcase";
+import { WebsiteShowcase } from "@/components/website-showcase";
+
+export const metadata: Metadata = {
+  title: "Selected Work",
+  description:
+    "Explore Danyal Khan’s projects across branding, creative direction, motion, marketing, and visual design.",
+};
+
+export default async function Work({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const { category } = await searchParams;
+  return (
+    <>
+      <PageIntro
+        label="Portfolio / Selected projects"
+        description="A collection of creative projects across branding, design, motion, and marketing. Each shaped by its own challenge, purpose, and point of view."
+      >
+        Work that speaks.
+        <br />
+        <span className="muted">Ideas that connect.</span>
+      </PageIntro>
+      <section className="container archive-section">
+        <WorkGrid key={category} initialCategory={category} />
+      </section>
+      <SocialPostGallery />
+      <AnimationShowcase sectionNumber="02" />
+      <GitHubRepositories sectionNumber="03" />
+      <WebsiteShowcase sectionNumber="04" />
+      <ClientCollaborations sectionNumber="05" />
+      <ContactCTA />
+    </>
+  );
+}

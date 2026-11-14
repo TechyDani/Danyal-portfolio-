@@ -1,0 +1,191 @@
+.page { color: var(--ink); }
+.hero { padding-block: 36px 49px; }
+.topline { display: flex; align-items: center; justify-content: space-between; gap: 25px; font-size: 8px; letter-spacing: 1.2px; color: var(--muted); }
+.topline > span:first-child { color: var(--ink); }
+.heroGrid { display: grid; grid-template-columns: 1.4fr 0.6fr; align-items: end; gap: 65px; padding-top: 48px; }
+.hero h1 { font-size: clamp(53px, 6.6vw, 94px); line-height: 1.08; font-weight: 600; letter-spacing: -0.07em; }
+.hero h1 > span { color: var(--blue); }
+.heroLinks { display: flex; flex-wrap: wrap; align-items: center; gap: 27px; margin-top: 25px; }
+.heroLinks > a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 11px; }
+.heroLinks > a:first-child { font-weight: 500; }
+.heroLinks > a:first-child > svg { box-sizing: content-box; padding: 8px; border-radius: 50%; background: var(--ink); color: white; transition: background 200ms, transform 200ms; }
+.heroLinks > a:hover { color: var(--blue); }
+.heroLinks > a:first-child:hover > svg { background: var(--blue); transform: translateY(2px); }
+.heroLinks > a:last-child { color: var(--muted); }
+.heroLinks > a:last-child:hover { color: var(--blue); }
+.heroNote { padding-bottom: 14px; }
+.heroMark { color: var(--blue); margin-bottom: 21px; }
+.heroNote > p { font-family: Manrope, sans-serif; font-size: 20px; font-weight: 500; line-height: 1.55; letter-spacing: -0.04em; }
+.heroNote > span { display: block; margin-top: 18px; font-size: 11px; line-height: 1.8; color: var(--muted); }
+.contactGrid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; gap: 45px; }
+.formPanel { min-width: 0; padding: 37px; border: 1px solid var(--line); border-radius: 21px; background: #fff; scroll-margin-top: 30px; }
+.formHeading { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+.sectionLabel { display: flex; align-items: center; gap: 8px; font-size: 8px; line-height: 1.6; letter-spacing: 1.1px; }
+.sectionLabel > span { width: 5px; height: 5px; flex-shrink: 0; background: var(--blue); }
+.formHeading h2 { font-size: 33px; line-height: 1.15; letter-spacing: -0.055em; margin-top: 18px; }
+.formHeading h2 > span { color: #92928e; }
+.formHeading > svg { color: var(--blue); }
+.formIntro { margin-top: 18px; font-size: 11px; color: var(--muted); line-height: 1.8; }
+.formIntro > span { display: block; font-size: 9px; margin-top: 4px; }
+.form { position: relative; margin-top: 31px; }
+.fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.fieldset + .fieldset { margin-top: 29px; }
+.fieldset legend { display: flex; align-items: center; gap: 10px; padding: 0; margin-bottom: 17px; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.3px; }
+.fieldset legend > span { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 50%; font-family: Inter, sans-serif; font-size: 8px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+.formRow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.form label { display: block; min-width: 0; font-size: 10px; line-height: 1.6; font-weight: 500; }
+.form label > span { color: var(--blue); margin-left: 2px; }
+.form label > small { font-size: 9px; font-weight: 400; color: var(--muted); margin-left: 2px; }
+.form input, .form select, .form textarea { display: block; width: 100%; min-width: 0; min-height: 47px; padding: 13px 14px; margin-top: 8px; border: 1px solid #dcdcd5; border-radius: 8px; background: var(--canvas); color: var(--ink); font-family: inherit; font-size: 12px; line-height: 1.5; font-weight: 400; transition: border-color 200ms, box-shadow 200ms; }
+.form select { padding-right: 26px; }
+.form select:invalid { color: #888881; }
+.form input::placeholder, .form textarea::placeholder { color: #93938b; opacity: 1; }
+.form select option, .form select optgroup { color: var(--ink); background: var(--canvas); }
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px #3478f61a; }
+.form textarea { min-height: 150px; resize: vertical; line-height: 1.8; }
+.briefHint { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-top: 9px; color: var(--muted); }
+.briefHint > p { font-size: 9px; line-height: 1.7; }
+.briefHint > span { flex-shrink: 0; font-size: 9px; line-height: 1.7; font-variant-numeric: tabular-nums; }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.formBottom { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.formBottom > p { max-width: 205px; font-size: 9px; line-height: 1.8; color: var(--muted); }
+.submitButton { display: inline-flex; align-items: center; justify-content: center; gap: 17px; min-height: 46px; padding: 13px 19px; border: 1px solid var(--ink); border-radius: 100px; background: var(--ink); color: white; font-size: 11px; font-weight: 500; white-space: nowrap; transition: background 200ms, border-color 200ms; }
+.submitButton:hover:not(:disabled) { background: var(--blue); border-color: var(--blue); }
+.spinner { animation: contact-spin 900ms linear infinite; }
+.feedback { margin-top: 20px; border: 1px solid #d1def6; border-radius: 9px; background: #f0f5ff; padding: 15px 17px; color: #295ba4; font-size: 11px; line-height: 1.8; }
+.feedback a { text-decoration: underline; text-underline-offset: 3px; }
+.feedbackSuccess { border-color: #d6e4cf; background: #f0f5ed; color: #42613a; }
+.feedbackError { border-color: #eed8d2; background: #fcf3f0; color: #9d4132; }
+.contactSidebar { position: sticky; top: 30px; min-width: 0; }
+.contactCard { padding: 33px; border: 1px solid var(--ink); border-radius: 21px; background: var(--ink); color: #f7f7f1; }
+.cardTopline { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #b1b1a8; font-size: 7px; letter-spacing: 0.8px; }
+.cardTopline > svg { color: #91b4ff; }
+.identity { display: flex; align-items: center; gap: 18px; margin-top: 33px; }
+.portrait { display: block; width: 70px; height: 70px; flex-shrink: 0; overflow: hidden; border-radius: 50%; background: #d8d8cf; }
+.portrait > img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom; filter: saturate(0.7); }
+.identity h2 { font-size: 27px; letter-spacing: -0.05em; line-height: 1.2; }
+.identity p { font-size: 10px; line-height: 1.9; margin-top: 7px; }
+.identity p > span { color: #b6b6ab; }
+.cardNote { max-width: 340px; margin-top: 25px; font-size: 12px; color: #b6b6ab; line-height: 1.9; }
+.emailLink { display: block; margin-top: 27px; padding-block: 24px; border-top: 1px solid #ffffff29; border-bottom: 1px solid #ffffff29; }
+.emailLabel { display: flex; align-items: center; gap: 7px; margin-bottom: 12px; color: #b6b6ab; font-size: 7px; letter-spacing: 1.2px; }
+.emailLink > span:last-child { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: Manrope, sans-serif; font-size: clamp(17px, 1.7vw, 24px); line-height: 1.5; letter-spacing: -0.6px; overflow-wrap: anywhere; }
+.emailLink > span:last-child > svg { color: #91b4ff; transition: transform 200ms; }
+.emailLink:hover > span:last-child > svg { transform: translate(3px, -3px); }
+.location { display: flex; align-items: flex-start; gap: 11px; margin-top: 25px; }
+.location > svg { margin-top: 3px; color: #91b4ff; }
+.location p { font-size: 12px; }
+.location span { display: block; margin-top: 4px; color: #b6b6ab; font-size: 10px; line-height: 1.8; }
+.socialSection { margin-top: 31px; }
+.socialSection > p { font-size: 7px; letter-spacing: 1px; color: #9b9b90; }
+.socialLinks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; margin-top: 10px; }
+.socialLinks > a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; border-bottom: 1px solid #ffffff20; font-size: 11px; }
+.socialLinks > a > svg { color: #b6b6ab; }
+.socialLinks > a:hover, .socialLinks > a:hover > svg { color: #91b4ff; }
+.cardSignature { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 29px; }
+.cardSignature > span { font-size: 6px; letter-spacing: 0.65px; color: #9b9b90; }
+.cardSignature > svg { color: #91b4ff; }
+.sidebarNote { display: flex; align-items: center; gap: 12px; padding: 24px 6px; }
+.sidebarNote > svg { color: var(--blue); }
+.sidebarNote p { font-size: 10px; line-height: 1.8; }
+.sidebarNote p > span { color: var(--muted); }
+.nextSection { margin-top: 73px; padding-block: 55px 65px; border-top: 1px solid var(--line); }
+.nextHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+.nextHeading h2 { margin-top: 22px; font-size: 39px; line-height: 1.15; }
+.nextHeading h2 > span { color: #92928e; }
+.nextHeading > p { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.nextGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; padding: 0; margin: 35px 0 0; list-style: none; }
+.nextGrid > li { padding-top: 18px; border-top: 1px solid var(--line); }
+.nextGrid > li > div { display: flex; justify-content: space-between; align-items: center; }
+.nextGrid > li > div > span { font-family: Manrope, sans-serif; font-size: 32px; letter-spacing: -1.5px; color: #92928e; }
+.nextGrid > li > div > svg { color: var(--blue); }
+.nextGrid h3 { margin-top: 20px; font-size: 24px; line-height: 1.25; }
+.nextGrid p { max-width: 330px; margin-top: 13px; font-size: 12px; line-height: 1.9; color: var(--muted); }
+.servicesNote { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-block: 24px 45px; border-top: 1px solid var(--line); }
+.servicesNote > p { font-size: 12px; color: var(--muted); }
+.servicesNote > a { display: inline-flex; align-items: center; gap: 13px; font-size: 11px; }
+.servicesNote > a:hover { color: var(--blue); }
+
+@keyframes contact-spin { to { transform: rotate(360deg); } }
+@media (max-width: 1100px) {
+  .heroGrid { gap: 40px; }
+  .contactGrid { gap: 30px; }
+  .formPanel { padding: 29px; }
+  .contactCard { padding: 28px; }
+  .identity { gap: 14px; }
+  .identity h2 { font-size: 24px; }
+  .formBottom { gap: 17px; }
+  .submitButton { padding-inline: 16px; gap: 12px; }
+  .formBottom > p { max-width: 165px; }
+}
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: 1.35fr 0.65fr; gap: 30px; padding-top: 40px; }
+  .hero h1 { font-size: 6.5vw; }
+  .heroMark { width: 45px; height: 45px; margin-bottom: 15px; }
+  .heroNote > p { font-size: 17px; }
+  .heroNote > span { font-size: 10px; margin-top: 14px; }
+  .contactGrid { grid-template-columns: 1fr; gap: 30px; }
+  .contactSidebar { position: static; }
+  .contactCard { padding: 35px; }
+  .cardNote { max-width: 440px; }
+  .emailLink > span:last-child { font-size: 25px; }
+  .formPanel { padding: 35px; }
+  .formBottom > p { max-width: 260px; }
+  .sidebarNote { padding-block: 19px 0; }
+}
+@media (max-width: 600px) {
+  .hero { padding-block: 25px 32px; }
+  .topline { font-size: 7px; letter-spacing: 0.8px; }
+  .topline > span:last-child { display: none; }
+  .heroGrid { grid-template-columns: 1fr; gap: 25px; padding-top: 34px; }
+  .hero h1 { font-size: clamp(38px, 10.8vw, 64px); letter-spacing: -0.065em; }
+  .heroLinks { gap: 19px; margin-top: 21px; }
+  .heroLinks > a { font-size: 10px; }
+  .heroNote { display: flex; align-items: center; gap: 17px; padding-bottom: 0; }
+  .heroMark { width: 37px; height: 37px; margin: 0; }
+  .heroNote > p { font-size: 14px; line-height: 1.6; }
+  .heroNote > span { display: none; }
+  .contactGrid { gap: 25px; }
+  .formPanel { padding: 28px 21px; border-radius: 17px; }
+  .formHeading h2 { font-size: 30px; margin-top: 17px; }
+  .sectionLabel { font-size: 7px; letter-spacing: 0.7px; }
+  .formHeading > svg { width: 29px; }
+  .formIntro { font-size: 11px; }
+  .form { margin-top: 27px; }
+  .fieldset + .fieldset { margin-top: 26px; }
+  .fieldset legend { font-size: 13px; gap: 9px; margin-bottom: 16px; }
+  .formRow { grid-template-columns: 1fr; gap: 18px; }
+  .form label { font-size: 11px; }
+  .form input, .form select, .form textarea { font-size: 16px; padding: 12px; }
+  .form textarea { min-height: 165px; }
+  .briefHint { gap: 12px; }
+  .briefHint > p, .briefHint > span { font-size: 8px; }
+  .formBottom { flex-direction: column; align-items: stretch; gap: 17px; margin-top: 24px; padding-top: 20px; }
+  .formBottom > p { max-width: none; font-size: 9px; }
+  .submitButton { min-height: 48px; font-size: 11px; }
+  .feedback { font-size: 11px; padding: 14px; }
+  .contactCard { padding: 28px 24px; border-radius: 17px; }
+  .cardTopline { font-size: 6px; letter-spacing: 0.6px; }
+  .identity { gap: 15px; margin-top: 27px; }
+  .identity h2 { font-size: 25px; }
+  .portrait { width: 63px; height: 63px; }
+  .cardNote { font-size: 11px; margin-top: 22px; }
+  .emailLink { padding-block: 22px; margin-top: 24px; }
+  .emailLink > span:last-child { font-size: clamp(17px, 5vw, 25px); }
+  .emailLink > span:last-child > svg { width: 17px; }
+  .cardSignature > span { font-size: 5px; letter-spacing: 0.5px; }
+  .nextSection { margin-top: 47px; padding-block: 39px 44px; }
+  .nextHeading { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .nextHeading h2 { margin-top: 19px; font-size: 33px; }
+  .nextHeading > p { font-size: 11px; }
+  .nextGrid { grid-template-columns: 1fr; gap: 27px; margin-top: 27px; }
+  .nextGrid > li > div > span { font-size: 28px; }
+  .nextGrid h3 { margin-top: 15px; font-size: 22px; }
+  .nextGrid p { max-width: none; font-size: 11px; margin-top: 11px; }
+  .servicesNote { align-items: flex-start; flex-direction: column; gap: 13px; padding-block: 21px 35px; }
+  .servicesNote > p { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+  .heroLinks > a:first-child:hover > svg, .emailLink:hover > span:last-child > svg { transform: none; }
+}

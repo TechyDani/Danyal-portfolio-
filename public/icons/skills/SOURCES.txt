@@ -1,0 +1,6 @@
+Tool icons except CapCut: Devicon, https://github.com/devicons/devicon
+License: MIT; see LICENSE.devicon.
+
+CapCut icon: Lawnicons, https://github.com/lawnchairlauncher/lawnicons/blob/develop/svgs/capcut.svg
+License: Apache-2.0; see LICENSE.lawnicons.
+Modification: added a viewBox for responsive sizing.
