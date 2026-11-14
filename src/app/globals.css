@@ -899,24 +899,57 @@ p {
   border-color: var(--blue);
   color: var(--blue);
 }
+.animation-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.animation-nav {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #cfcfca;
+  border-radius: 50%;
+  background: transparent;
+}
+.animation-nav:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
 .animation-viewport {
-  overflow: hidden;
-  padding-block: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 8px 18px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b4b4ac transparent;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+.animation-viewport:focus-visible {
+  outline-offset: -3px;
+}
+.animation-viewport::-webkit-scrollbar {
+  height: 6px;
+}
+.animation-viewport::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: #b4b4ac;
 }
 .animation-track {
   display: flex;
   width: max-content;
-  animation: animation-scroll-right 110s linear infinite;
 }
 .animation-group {
   display: flex;
   flex-shrink: 0;
+  min-width: 100vw;
+  justify-content: space-around;
   gap: var(--animation-gap);
   padding-right: var(--animation-gap);
-}
-.animation-showcase[data-paused="true"] .animation-track,
-.animation-track:has(.animation-card:hover) {
-  animation-play-state: paused;
 }
 .animation-card {
   flex-shrink: 0;
@@ -933,6 +966,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 .animation-card-tag {
   position: absolute;
@@ -995,20 +1029,12 @@ p {
 .animation-footnote > p {
   font-size: 10px;
 }
-/* Keep keyboard controls within the visible, scrollable original set. */
-.animation-viewport:has(:focus-visible) {
-  overflow-x: auto;
-}
-.animation-viewport:has(:focus-visible) .animation-track {
-  animation: none;
-  transform: none;
-}
-.animation-viewport:has(:focus-visible) .animation-group[aria-hidden="true"] {
+.animation-touch-hint {
   display: none;
 }
-@keyframes animation-scroll-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+@media (pointer: coarse) {
+  .animation-desktop-hint { display: none; }
+  .animation-touch-hint { display: inline; }
 }
 @media (max-width: 760px) {
   .animation-showcase {
@@ -1027,15 +1053,10 @@ p {
     flex-direction: column;
     gap: 8px;
   }
+  .animation-desktop-hint { display: none; }
+  .animation-touch-hint { display: inline; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .animation-viewport {
-    overflow-x: auto;
-  }
-  .animation-track {
-    animation: none;
-    transform: none;
-  }
   .animation-group[aria-hidden="true"] {
     display: none;
   }

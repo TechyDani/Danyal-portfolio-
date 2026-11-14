@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check,
-  BookOpen, Braces, Code2, Globe2, Infinity as InfinityIcon, Megaphone,
+  BookOpen, Braces, Code2, Download, Globe2, Infinity as InfinityIcon, Megaphone,
   MousePointer2, Plus, Receipt, Search, ShoppingBag, Smartphone, Target, TrendingUp,
 } from "lucide-react";
 import { RevealObserver } from "@/components/reveal";
@@ -54,7 +54,7 @@ export default function Services() {
               <h1 id="services-heading">Growth needs<br /><span>structure.</span></h1>
               <p className={styles.heroLead}>Marketing that connects. Websites, apps, and commerce solutions that make your business work better. All built around a clear strategy.</p>
               <div className={styles.heroActions}>
-                <Link href="/contact" className={styles.primaryButton}>Let’s plan your growth <ArrowUpRight size={17} /></Link>
+                <a href="/downloads/RevBoost_Company_Profile.pdf" download="RevBoost_Company_Profile.pdf" className={styles.primaryButton}>Download RevBoost Company Profile <Download size={17} aria-hidden="true" /></a>
                 <a href="#our-services" className={styles.textLink}>Explore our services <ArrowDown size={15} /></a>
               </div>
               <Link href="/about" className={styles.founderLink}>
@@ -88,7 +88,7 @@ export default function Services() {
           <div className={styles.quickLinks} aria-label="Jump to a service">
             {services.map((service) => {
               const Icon = serviceIcons[service.icon];
-              return <a href={`#${service.id}`} key={service.id}><Icon size={19} strokeWidth={1.6} /><span>{service.title}</span><ArrowDown size={13} /></a>;
+              return <a href={`#${service.id}`} key={service.id}><Icon size={19} strokeWidth={1.6} aria-hidden="true" /><span>{service.title}</span></a>;
             })}
           </div>
         </div>

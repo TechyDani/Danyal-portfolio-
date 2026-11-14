@@ -55,8 +55,7 @@
 .quickLinks > a:not(:nth-child(3n+1)) { border-left: 1px solid var(--line); }
 .quickLinks > a:nth-child(n+4) { border-top: 1px solid var(--line); }
 .quickLinks > a > svg:first-child { color: var(--services-blue); }
-.quickLinks > a > svg:last-child { color: var(--muted); }
-.quickLinks > a:hover, .quickLinks > a:hover > svg:last-child { color: var(--services-blue); }
+.quickLinks > a:hover { color: var(--services-blue); }
 .servicesSection { padding-block: 91px 100px; scroll-margin-top: 35px; }
 .sectionHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
 .sectionHeading h2 { margin-top: 23px; font-size: clamp(33px, 3.65vw, 51px); }
@@ -169,7 +168,6 @@
   .systemHeading { font-size: 6px; }
   .systemFoot { font-size: 5px; letter-spacing: 0.1px; }
   .quickLinks > a { gap: 8px; font-size: 10px; padding-inline: 9px; }
-  .quickLinks > a > svg:last-child { display: none; }
   .sectionHeading { align-items: flex-start; flex-direction: column; gap: 22px; }
   .sectionHeading > p { max-width: 400px; font-size: 12px; }
   .serviceCard { padding: 27px; }
