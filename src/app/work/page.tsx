@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { WorkGrid } from "@/components/work-grid";
-import { PageIntro } from "@/components/ui";
+import { WorkHero } from "@/components/work-hero";
 import { ContactCTA } from "@/components/footer";
 import { ClientCollaborations } from "@/components/client-collaborations";
 import { GitHubRepositories } from "@/components/github-repositories";
 import { SocialPostGallery } from "@/components/social-post-gallery";
 import { AnimationShowcase } from "@/components/animation-showcase";
 import { WebsiteShowcase } from "@/components/website-showcase";
+import { CatalogShowcase } from "@/components/catalog-showcase";
 
 export const metadata: Metadata = {
   title: "Selected Work",
   description:
-    "Explore Danyal Khan’s projects across branding, creative direction, motion, marketing, and visual design.",
+    "Explore Danyal Khan’s projects across branding, catalog design, creative direction, motion, marketing, and visual design.",
 };
 
 export default async function Work({
@@ -22,17 +23,11 @@ export default async function Work({
   const { category } = await searchParams;
   return (
     <>
-      <PageIntro
-        label="Portfolio / Selected projects"
-        description="A collection of creative projects across branding, design, motion, and marketing. Each shaped by its own challenge, purpose, and point of view."
-      >
-        Work that speaks.
-        <br />
-        <span className="muted">Ideas that connect.</span>
-      </PageIntro>
-      <section className="container archive-section">
+      <WorkHero />
+      <section id="work-projects" className="container archive-section" aria-label="Selected projects">
         <WorkGrid key={category} initialCategory={category} />
       </section>
+      <CatalogShowcase />
       <SocialPostGallery />
       <AnimationShowcase sectionNumber="02" />
       <GitHubRepositories sectionNumber="03" />

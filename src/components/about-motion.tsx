@@ -20,12 +20,6 @@ export function AboutMotion({ children }: { children: ReactNode }) {
 
       const reveals = Array.from(page.querySelectorAll<HTMLElement>("[data-animate]"));
       const parallax = Array.from(page.querySelectorAll<HTMLElement>("[data-parallax]"));
-      const drifts = Array.from(page.querySelectorAll<HTMLElement>("[data-drift]"));
-      const reading = Array.from(page.querySelectorAll<HTMLElement>("[data-reading]")).map((element) => ({
-        element,
-        words: Array.from(element.querySelectorAll<HTMLElement>("[data-word]")),
-        previousCount: -1,
-      }));
       const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
@@ -33,7 +27,7 @@ export function AboutMotion({ children }: { children: ReactNode }) {
             observer.unobserve(entry.target);
           }
         }
-      }, { threshold: 0.1, rootMargin: "0px 0px -24px 0px" });
+      }, { threshold: 0.08, rootMargin: "0px 0px -16px 0px" });
 
       let frame = 0;
       function updateScroll() {
@@ -42,33 +36,13 @@ export function AboutMotion({ children }: { children: ReactNode }) {
         const viewport = window.innerHeight;
         const bounds = page.getBoundingClientRect();
         const progress = clamp(-bounds.top / Math.max(1, bounds.height - viewport), 0, 1);
-        const desktop = window.innerWidth > 900;
-        // Read layout before writing styles, and never intercept native scrolling.
         const offsets = parallax.map((element) => {
           const top = element.parentElement?.getBoundingClientRect().top ?? 0;
-          return desktop ? clamp((viewport / 2 - top) * Number(element.dataset.parallax), -28, 28) : 0;
+          return window.innerWidth > 900 ? clamp((viewport / 2 - top) * Number(element.dataset.parallax), -14, 14) : 0;
         });
-        const driftsX = drifts.map((element) => {
-          const top = element.parentElement?.getBoundingClientRect().top ?? 0;
-          return clamp((viewport / 2 - top) * Number(element.dataset.drift), -140, 140);
-        });
-        const wordCounts = reading.map(({ element, words }) => {
-          const rect = element.getBoundingClientRect();
-          const amount = clamp((viewport * 0.85 - rect.top) / (viewport * 0.5 + rect.height * 0.2), 0, 1);
-          return Math.ceil(amount * words.length);
-        });
-
         page.style.setProperty("--about-progress", String(progress));
         parallax.forEach((element, index) => element.style.setProperty("--parallax-y", `${offsets[index]}px`));
-        drifts.forEach((element, index) => element.style.setProperty("--drift-x", `${driftsX[index]}px`));
-        reading.forEach((group, groupIndex) => {
-          const count = wordCounts[groupIndex];
-          if (count === group.previousCount) return;
-          group.words.forEach((word, index) => { word.style.opacity = index < count ? "1" : "0.25"; });
-          group.previousCount = count;
-        });
       }
-
       function requestUpdate() {
         if (!frame) frame = window.requestAnimationFrame(updateScroll);
       }
@@ -87,8 +61,6 @@ export function AboutMotion({ children }: { children: ReactNode }) {
         delete page.dataset.motion;
         page.style.removeProperty("--about-progress");
         parallax.forEach((element) => element.style.removeProperty("--parallax-y"));
-        drifts.forEach((element) => element.style.removeProperty("--drift-x"));
-        reading.forEach(({ words }) => words.forEach((word) => word.style.removeProperty("opacity")));
       };
     }
 
@@ -100,9 +72,5 @@ export function AboutMotion({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return (
-    <div className={styles.page} ref={root}>
-      {children}
-    </div>
-  );
+  return <div className={styles.page} ref={root}>{children}</div>;
 }

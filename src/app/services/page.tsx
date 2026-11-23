@@ -2,162 +2,139 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check,
-  BookOpen, Braces, Code2, Download, Globe2, Infinity as InfinityIcon, Megaphone,
-  MousePointer2, Plus, Receipt, Search, ShoppingBag, Smartphone, Target, TrendingUp,
+  Asterisk, Check, Code2, Download, Globe2, Mail, Megaphone,
+  MessageCircle, MousePointer2, Plus, Search, ShoppingBag,
 } from "lucide-react";
 import { RevealObserver } from "@/components/reveal";
-import { services, serviceInquiryHref } from "@/lib/services";
+import { ServicesExplorer } from "@/components/services-explorer";
+import { site } from "@/lib/content";
+import { websites } from "@/lib/websites";
+import { GrowthArt } from "./growth-art";
 import styles from "./services.module.css";
 
 export const metadata: Metadata = {
   title: "Our Services | RevBoost",
   description:
-    "Explore RevBoost’s services: social media marketing, Meta ads, SEO/AEO, website and app development, point of sale websites, product catalogs, Shopify, and custom websites.",
+    "Strategy, creative, and technology for your next stage of growth. Explore RevBoost’s marketing, websites, apps, SEO/AEO, and commerce services. Islamabad, working worldwide.",
   alternates: { canonical: "/services" },
 };
 
-const serviceIcons = {
-  social: Megaphone, ads: InfinityIcon, web: Code2, search: Search,
-  app: Smartphone, pos: Receipt, catalog: BookOpen, shopify: ShoppingBag, custom: Braces,
-};
-const steps = [
-  { title: "Understand", description: "Your business, your audience, your offer. We start by understanding what growth means for you." },
-  { title: "Plan", description: "Set the direction. Connect the right channels, messages, and creative around your business goals." },
-  { title: "Create & launch", description: "Bring the plan to life, with every ad, post, and page working toward a clear next step." },
-  { title: "Review & refine", description: "Look at the response, learn what’s working, and use those insights to shape the next move." },
+const capabilities = [
+  { title: "Find your audience.", detail: "Marketing & visibility", href: "#marketing-services", icon: Megaphone },
+  { title: "Build your experience.", detail: "Websites & applications", href: "#development-services", icon: Code2 },
+  { title: "Simplify your business.", detail: "Commerce & operations", href: "#commerce-services", icon: ShoppingBag },
 ];
-const journey = [
-  { title: "Be discovered", detail: "SOCIAL + SEARCH", icon: Search },
-  { title: "Spark interest", detail: "CONTENT + ADS", icon: Target },
-  { title: "Build confidence", detail: "WEBSITES + APPS", icon: Code2 },
-  { title: "Make a connection", detail: "SALES + ENQUIRIES", icon: MousePointer2 },
+const steps = [
+  { title: "Understand.", description: "Your business, your audience, your ambition. We listen first and get clear on what matters.", output: "A shared starting point" },
+  { title: "Find the direction.", description: "Connect the right channels, messages, and creative around a focused plan for your business.", output: "A considered plan" },
+  { title: "Make it happen.", description: "Design, build, and launch. Bring the idea to life with care for the details and the bigger picture.", output: "Work out in the world" },
+  { title: "Keep moving.", description: "Review the response, learn what works, and use those insights to shape the next move.", output: "A clearer next step" },
 ];
 const questions = [
-  { question: "Can we start with just one service?", answer: "We can start with the service your business needs most and build from there. The goal is a clear, connected plan that fits your stage of growth." },
-  { question: "Do you work with businesses outside Pakistan?", answer: "Yes. RevBoost is based in Islamabad, Pakistan, and works with businesses around the world." },
-  { question: "How do we get started?", answer: "Tell us about your business and what you want to achieve through the contact page. We’ll discuss your goals, your current challenges, and which services make sense for you." },
+  { question: "Can we start with just one service?", answer: "Absolutely. We can start with the service your business needs most and build from there. The goal is a focused plan that fits your stage of growth, whether that means one project or several connected services." },
+  { question: "What if I’m not sure what my business needs?", answer: "Start with a conversation. Tell us about your business, the challenges you’re facing, and where you want to go. We’ll help you work out which creative, marketing, or development support makes sense." },
+  { question: "Do you work with businesses outside Pakistan?", answer: "Yes. RevBoost is based in Islamabad, Pakistan, and works with businesses around the world. We can collaborate remotely throughout planning, creation, and launch." },
+  { question: "How do we get started?", answer: "Share a few details through the contact page. We’ll discuss your goals, the scope of the work, and the next steps before a project begins. You don’t need a perfect brief to start." },
 ];
+const selectedWebsites = [websites[0], websites[3], websites[5]];
 
 export default function Services() {
   return (
     <div className={styles.page}>
-      <section className={styles.hero} aria-labelledby="services-heading">
-        <div className="container">
+      <section className={`${styles.hero} container`} aria-labelledby="services-heading">
+        <div className={styles.heroPanel}>
           <div className={styles.heroTopline}>
-            <span className={styles.wordmark}>REV<span>BOOST</span><ArrowUpRight size={18} aria-hidden="true" /></span>
-            <span className={styles.toplineNote}>MARKETING AGENCY / OUR SERVICES</span>
+            <span className={styles.wordmark}>REV<span>BOOST</span><Asterisk size={18} strokeWidth={1.4} aria-hidden="true" /></span>
+            <span className={styles.toplineNote}>INDEPENDENT THINKING. CONNECTED EXECUTION.</span>
           </div>
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}><span /> STRATEGY FIRST. GROWTH IN FOCUS.</p>
-              <h1 id="services-heading">Growth needs<br /><span>structure.</span></h1>
-              <p className={styles.heroLead}>Marketing that connects. Websites, apps, and commerce solutions that make your business work better. All built around a clear strategy.</p>
+              <p className={styles.eyebrow}>A CREATIVE & DIGITAL GROWTH PARTNER</p>
+              <h1 id="services-heading">Your next<br /><span>big move.</span></h1>
+              <p className={styles.heroLead}>Strategy, creative, and technology.<br />Everything your next chapter needs, connected.</p>
               <div className={styles.heroActions}>
-                <a href="/downloads/RevBoost_Company_Profile.pdf" download="RevBoost_Company_Profile.pdf" className={styles.primaryButton}>Download RevBoost Company Profile <Download size={17} aria-hidden="true" /></a>
-                <a href="#our-services" className={styles.textLink}>Explore our services <ArrowDown size={15} /></a>
+                <Link href="/contact" className={styles.primaryButton}><MessageCircle size={17} aria-hidden="true" /> Let’s talk about your project</Link>
+                <a href="#our-services" className={styles.heroExplore}>Explore our services</a>
               </div>
               <Link href="/about" className={styles.founderLink}>
-                <span className={styles.founderPortrait}><Image src="/images/danyal-khan.png" alt="" width={42} height={42} /></span>
-                <span><strong>Founded & led by Danyal Khan</strong><span>Islamabad, Pakistan · Working worldwide</span></span>
-                <ArrowUpRight size={15} aria-hidden="true" />
+                <span className={styles.founderPortrait}><Image src="/images/danyal-khan.png" alt="" width={46} height={46} sizes="46px" /></span>
+                <span><strong>Founded & led by Danyal Khan</strong><span>Creative thinking. Hands-on execution.</span></span>
               </Link>
             </div>
-            <aside className={styles.systemBoard} aria-label="The RevBoost approach to connected growth">
-              <div className={styles.systemHeading}><span>THE REVBOOST APPROACH</span><span>01 → 03</span></div>
-              <ol className={styles.systemSteps}>
-                <li>
-                  <span className={styles.systemIcon}><Megaphone size={26} strokeWidth={1.6} /></span>
-                  <div><span className={styles.systemNumber}>01 / GET DISCOVERED</span><h2>Show up<br /><span>with purpose.</span></h2><p>Social media + SEO / AEO</p></div>
-                  <ArrowDownRight className={styles.systemArrow} size={20} aria-hidden="true" />
-                </li>
-                <li>
-                  <span className={styles.systemIcon}><Target size={26} strokeWidth={1.6} /></span>
-                  <div><span className={styles.systemNumber}>02 / BUILD INTEREST</span><h2>Reach the<br /><span>right people.</span></h2><p>Meta ads + focused creative</p></div>
-                  <ArrowDownRight className={styles.systemArrow} size={20} aria-hidden="true" />
-                </li>
-                <li>
-                  <span className={styles.systemIcon}><MousePointer2 size={26} strokeWidth={1.6} /></span>
-                  <div><span className={styles.systemNumber}>03 / CREATE A NEXT STEP</span><h2>Turn attention<br /><span>into action.</span></h2><p>Websites, apps & commerce</p></div>
-                  <ArrowUpRight className={styles.systemArrow} size={20} aria-hidden="true" />
-                </li>
-              </ol>
-              <div className={styles.systemFoot}><TrendingUp size={18} aria-hidden="true" /><span>INDIVIDUAL SERVICES. ONE CONNECTED STRATEGY.</span></div>
-            </aside>
+            <GrowthArt />
           </div>
-          <div className={styles.quickLinks} aria-label="Jump to a service">
-            {services.map((service) => {
-              const Icon = serviceIcons[service.icon];
-              return <a href={`#${service.id}`} key={service.id}><Icon size={19} strokeWidth={1.6} aria-hidden="true" /><span>{service.title}</span></a>;
-            })}
+          <div className={styles.heroFoot}>
+            <span><Globe2 size={15} aria-hidden="true" /> Islamabad, Pakistan · Working worldwide</span>
+            <a href="/downloads/RevBoost_Company_Profile.pdf" download="RevBoost_Company_Profile.pdf"><Download size={15} aria-hidden="true" /> Download company profile <span>PDF</span></a>
           </div>
         </div>
-      </section>
-
-      <section id="our-services" className={`${styles.servicesSection} container`} aria-labelledby="offering-heading">
-        <div className={styles.sectionHeading} data-reveal>
-          <div><p className={styles.sectionLabel}><span /> 01 / WHAT WE DO · {services.length.toString().padStart(2, "0")} SERVICES</p><h2 id="offering-heading">More ways to grow.<br /><span>One connected approach.</span></h2></div>
-          <p>From getting discovered to serving customers.<br />Marketing, websites, and tools built around your business.</p>
-        </div>
-        <div className={styles.serviceGrid}>
-          {services.map((service, index) => {
-            const Icon = serviceIcons[service.icon];
-            return (
-              <article id={service.id} className={styles.serviceCard} data-reveal key={service.id}>
-                <div className={styles.serviceCardTop}><span className={styles.serviceIcon}><Icon size={29} strokeWidth={1.5} aria-hidden="true" /></span><span className={styles.serviceNumber}>/ {(index + 1).toString().padStart(2, "0")}</span></div>
-                <p className={styles.serviceCategory}>{service.category}</p>
-                <h3>{service.title}</h3>
-                <p className={styles.serviceDescription}>{service.description}</p>
-                <ul className={styles.deliverables} aria-label={`${service.title} includes`}>
-                  {service.deliverables.map((item) => <li key={item}><Check size={14} aria-hidden="true" />{item}</li>)}
-                </ul>
-                <div className={styles.serviceActions}>
-                  <Link href={serviceInquiryHref(service.title)} className={styles.serviceLink} aria-label={`Discuss ${service.title} with RevBoost`}>Discuss this service <ArrowUpRight size={18} /></Link>
-                  {"workUrl" in service && <Link className={styles.workLink} href={service.workUrl}>See our web work <ArrowUpRight size={13} /></Link>}
-                </div>
-              </article>
-            );
+        <nav className={styles.capabilities} aria-label="Explore our capabilities">
+          {capabilities.map((capability) => {
+            const Icon = capability.icon;
+            return <a key={capability.title} href={capability.href}><Icon size={24} strokeWidth={1.4} aria-hidden="true" /><span><strong>{capability.title}</strong><span>{capability.detail}</span></span><Plus size={16} aria-hidden="true" /></a>;
           })}
+        </nav>
+      </section>
+
+      <ServicesExplorer />
+
+      <section className={`${styles.connected} container`} aria-labelledby="connected-heading">
+        <div className={styles.connectedPanel}>
+          <div className={styles.connectedCopy} data-reveal>
+            <p className={styles.sectionLabel}><span /> THE BIGGER PICTURE</p>
+            <h2 id="connected-heading">Every part.<br /><span>Pulling together.</span></h2>
+            <p>Great creative gets attention. A thoughtful experience builds confidence. The right tools help your business deliver. We connect the pieces around what you want to achieve.</p>
+            <Link href="/contact" className={styles.outlineButton}><MessageCircle size={16} aria-hidden="true" /> Find your direction</Link>
+          </div>
+          <div className={styles.connectionMap} aria-label="Discover, connect, and deliver: three parts of a connected customer experience">
+            <div className={styles.mapHeading}><Asterisk size={18} aria-hidden="true" /><span>THE REVBOOST APPROACH</span></div>
+            <div className={styles.connectionNode} data-reveal><span className={styles.nodeIcon}><Search size={24} strokeWidth={1.4} aria-hidden="true" /></span><div><h3>Be discovered.</h3><p>Social, search, and campaigns that introduce your business.</p><span>MARKETING & VISIBILITY</span></div></div>
+            <div className={styles.connectionNode} data-reveal><span className={styles.nodeIcon}><MousePointer2 size={24} strokeWidth={1.4} aria-hidden="true" /></span><div><h3>Make a connection.</h3><p>Websites and apps that turn interest into a next step.</p><span>DIGITAL EXPERIENCES</span></div></div>
+            <div className={styles.connectionNode} data-reveal><span className={styles.nodeIcon}><ShoppingBag size={24} strokeWidth={1.4} aria-hidden="true" /></span><div><h3>Keep things moving.</h3><p>Commerce and business tools that support what comes next.</p><span>COMMERCE & OPERATIONS</span></div></div>
+            <div className={styles.mapFoot}><Check size={14} aria-hidden="true" /> One business. A connected approach.</div>
+          </div>
         </div>
       </section>
 
-      <section className={styles.connected} aria-labelledby="connected-heading">
-        <div className="container">
-          <div className={styles.connectedHeading} data-reveal>
-            <div><p className={styles.sectionLabel}><span /> 02 / THE BIGGER PICTURE</p><h2 id="connected-heading">Your channels should<br /><span>work together.</span></h2></div>
-            <p>A post sparks interest. An ad reaches a new audience. A website, store, or app helps people take the next step. We connect your marketing and technology around your business goals.</p>
-          </div>
-          <ol className={styles.journey}>
-            {journey.map((stage, index) => {
-              const Icon = stage.icon;
-              return <li key={stage.title} data-reveal><span className={styles.journeyIcon}><Icon size={25} strokeWidth={1.5} aria-hidden="true" /></span><span className={styles.journeyDetail}>{stage.detail}</span><h3>{stage.title}</h3>{index < journey.length - 1 && <ArrowRight className={styles.journeyArrow} size={20} aria-hidden="true" />}</li>;
-            })}
-          </ol>
+      <section className={`${styles.workSection} container`} aria-labelledby="services-work-heading">
+        <div className={styles.sectionHeading} data-reveal>
+          <div><p className={styles.sectionLabel}><span /> IDEAS OUT IN THE WORLD</p><h2 id="services-work-heading">From the thinking<br /><span>to the doing.</span></h2></div>
+          <div className={styles.headingAside}><p>A few digital experiences brought to life for real businesses.</p><Link href="/work?category=Web%20%26%20Digital" className={styles.textLink}>Explore our web work</Link></div>
+        </div>
+        <div className={styles.workGrid}>
+          {selectedWebsites.map((website) => (
+            <a key={website.url} href={website.url} className={styles.workCard} target="_blank" rel="noopener noreferrer" data-reveal aria-label={`Visit ${website.name} (opens in a new tab)`}>
+              <div className={styles.workPreview}><div className={styles.previewBar} aria-hidden="true"><span><i /><i /><i /></span><span>{website.domain}</span><Globe2 size={12} /></div><div className={styles.workImage}><Image src={website.image} alt={`${website.name} homepage`} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw" /></div><span className={styles.workVisit}><Globe2 size={14} aria-hidden="true" /> Visit website</span></div>
+              <div className={styles.workInfo}><h3>{website.name}</h3><span>Website development</span></div>
+            </a>
+          ))}
         </div>
       </section>
 
       <section className={`${styles.processSection} container`} aria-labelledby="process-heading">
         <div className={styles.sectionHeading} data-reveal>
-          <div><p className={styles.sectionLabel}><span /> 03 / HOW WE WORK</p><h2 id="process-heading">A clear plan.<br /><span>A close working relationship.</span></h2></div>
-          <p>Thoughtful strategy. Hands-on execution.<br />A process you can be part of.</p>
+          <div><p className={styles.sectionLabel}><span /> HOW WE WORK</p><h2 id="process-heading">A clear direction.<br /><span>A close collaboration.</span></h2></div>
+          <p>You’re part of the process.<br />From the first conversation to what comes next.</p>
         </div>
         <ol className={styles.processGrid}>
-          {steps.map((step, index) => <li key={step.title} data-reveal><div className={styles.processTop}><span>0{index + 1}</span><ArrowUpRight size={19} aria-hidden="true" /></div><h3>{step.title}</h3><p>{step.description}</p></li>)}
+          {steps.map((step) => <li key={step.title} data-reveal><span className={styles.processMark} aria-hidden="true"><Asterisk size={25} strokeWidth={1.1} /></span><h3>{step.title}</h3><p>{step.description}</p><span className={styles.processOutput}>{step.output}</span></li>)}
         </ol>
+        <div className={styles.processFoot}><span>Thoughtful strategy. Considered execution.</span><a href="/downloads/RevBoost_Company_Profile.pdf" download="RevBoost_Company_Profile.pdf"><Download size={14} aria-hidden="true" /> Get to know RevBoost</a></div>
       </section>
 
       <section className={`${styles.faqSection} container`} aria-labelledby="faq-heading">
-        <div className={styles.faqIntro} data-reveal><p className={styles.sectionLabel}><span /> A LITTLE MORE CLARITY</p><h2 id="faq-heading">Good questions.<br /><span>Straight answers.</span></h2><Link href="/contact" className={styles.textLink}>Have something else in mind? <ArrowUpRight size={15} /></Link></div>
+        <div className={styles.faqIntro} data-reveal><p className={styles.sectionLabel}><span /> BEFORE WE BEGIN</p><h2 id="faq-heading">A little more<br /><span>clarity.</span></h2><p>Good questions make<br />a great starting point.</p><Link href="/contact" className={styles.textLink}>Ask us something else</Link></div>
         <div className={styles.faqList} data-reveal>
-          {questions.map((item, index) => <details key={item.question} open={index === 0}><summary>{item.question}<Plus size={18} aria-hidden="true" /></summary><p>{item.answer}</p></details>)}
+          {questions.map((item, index) => <details key={item.question} name="revboost-faq" open={index === 0}><summary>{item.question}<span><Plus size={18} aria-hidden="true" /></span></summary><p>{item.answer}</p></details>)}
         </div>
       </section>
 
       <section className={`${styles.ctaSection} container`} aria-labelledby="services-cta-heading">
-        <div className={styles.cta} data-reveal>
-          <div><p className={styles.sectionLabel}><span /> YOUR NEXT STAGE STARTS HERE</p><h2 id="services-cta-heading">Let’s give your growth<br /><span>a direction.</span></h2><p>Tell us about your business. Let’s work out the next move.</p><Link href="/contact" className={styles.primaryButton}>Talk to RevBoost <ArrowUpRight size={18} /></Link></div>
-          <ArrowUpRight className={styles.ctaArrow} strokeWidth={0.7} aria-hidden="true" />
-          <div className={styles.ctaFoot}><span className={styles.wordmark}>REV<span>BOOST</span></span><span><Globe2 size={13} aria-hidden="true" /> ISLAMABAD / WORKING WORLDWIDE</span></div>
+        <div className={styles.cta}>
+          <div className={styles.ctaTopline}><p className={styles.sectionLabel}><span /> SOMETHING GOOD STARTS HERE</p><span>LET’S MAKE THE NEXT MOVE COUNT.</span></div>
+          <div className={styles.ctaContent} data-reveal><h2 id="services-cta-heading">Ready for<br /><span>what’s next?</span></h2><Asterisk className={styles.ctaMark} strokeWidth={0.8} aria-hidden="true" /></div>
+          <div className={styles.ctaActions} data-reveal><div><p>A new idea. A business to grow. A better way forward.<br />Tell us what you have in mind.</p><Link href="/contact" className={styles.primaryButton}><MessageCircle size={17} aria-hidden="true" /> Tell us about your project</Link></div><a className={styles.ctaEmail} href={`mailto:${site.email}`}><span>OR SAY HELLO DIRECTLY</span><span><Mail size={18} aria-hidden="true" />{site.email}</span></a></div>
+          <div className={styles.ctaFoot}><span className={styles.wordmark}>REV<span>BOOST</span></span><span><Globe2 size={14} aria-hidden="true" /> Islamabad, Pakistan · Working worldwide</span></div>
         </div>
       </section>
       <RevealObserver />

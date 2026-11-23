@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Asterisk, Globe2, Mail, MessageCircle } from "lucide-react";
 import { site } from "@/lib/content";
+import { navigationLinks } from "@/lib/navigation";
 import { SectionLabel } from "./ui";
+import styles from "./site-chrome.module.css";
 
 export function ContactCTA() {
   return (
@@ -37,50 +39,33 @@ export function ContactCTA() {
 }
 
 export function Footer() {
+  const socials = [
+    { label: "Behance", href: site.behance },
+    { label: "GitHub", href: site.github },
+    { label: "Instagram", href: site.instagram },
+    { label: "Facebook", href: site.facebook },
+  ];
+
   return (
-    <footer className="site-footer container">
-      <div className="footer-top">
-        <Link href="/" className="footer-wordmark">
-          Danyal Khan<span>®</span>
-          <small>Ideas into experiences.</small>
-        </Link>
-        <div className="footer-link-group">
-          <span>Explore</span>
-          <Link href="/work">Work</Link>
-          <Link href="/about">About</Link>
-          <Link href="/services">Our Services</Link>
-          <Link href="/contact">Contact</Link>
+    <footer className={`${styles.footer} container`}>
+      <div className={styles.footerPanel}>
+        <div className={styles.footerTopline}><span><Asterisk size={18} strokeWidth={1.2} aria-hidden="true" /> CREATIVE THINKING. CONSIDERED EXECUTION.</span><span><Globe2 size={15} aria-hidden="true" /> Based in Islamabad. Creating across borders.</span></div>
+        <div className={styles.footerGrid}>
+          <div className={styles.footerIntro}>
+            <h2>Good things start<br /><span>with a hello.</span></h2>
+            <a className={styles.emailLink} href={`mailto:${site.email}`}><Mail size={18} strokeWidth={1.5} aria-hidden="true" /><span>{site.email}</span></a>
+            <Link className={styles.footerCta} href="/contact#project-enquiry"><MessageCircle size={16} strokeWidth={1.5} aria-hidden="true" /> Start a conversation</Link>
+          </div>
+          <nav className={styles.footerLinks} aria-label="Footer navigation"><p>Explore</p>{navigationLinks.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</nav>
+          <nav className={styles.footerLinks} aria-label="Social profiles"><p>Elsewhere</p>{socials.map((social) => <a href={social.href} key={social.label} target="_blank" rel="noopener noreferrer" aria-label={`${social.label} (opens in a new tab)`}>{social.label}</a>)}</nav>
         </div>
-        <div className="footer-link-group">
-          <span>Find me elsewhere</span>
-          <a href={site.behance} target="_blank" rel="noopener noreferrer">
-            Behance <ArrowUpRight size={13} />
-          </a>
-          <a href={site.github} target="_blank" rel="noopener noreferrer">
-            GitHub <ArrowUpRight size={13} />
-          </a>
-          <a href={site.instagram} target="_blank" rel="noopener noreferrer">
-            Instagram <ArrowUpRight size={13} />
-          </a>
-          <a href={site.facebook} target="_blank" rel="noopener noreferrer">
-            Facebook <ArrowUpRight size={13} />
-          </a>
+        <div className={styles.signatureTopline}><span>INDEPENDENT MIND. MULTIPLE DISCIPLINES.</span><span>DESIGN / MOTION / STRATEGY / DEVELOPMENT</span></div>
+        <Link href="/" className={styles.signature} aria-label="Danyal Khan home"><span>DANYAL KHAN</span><sup>®</sup></Link>
+        <div className={styles.footerBottom}>
+          <span>© {new Date().getFullYear()} Danyal Khan</span>
+          <span>Thoughtfully designed. Purposefully built.</span>
+          <a href="#top">Back to top<span aria-hidden="true">TOP</span></a>
         </div>
-        <div className="footer-contact">
-          <span>Good things start with a hello.</span>
-          <a href={`mailto:${site.email}`}>
-            {site.email}
-            <ArrowUpRight size={16} />
-          </a>
-          <p>Islamabad, Pakistan · Working across borders</p>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        <span>
-          © {new Date().getFullYear()} Danyal Khan. All rights reserved.
-        </span>
-        <span>Thoughtfully designed. Purposefully built.</span>
-        <a href="#top">Back to top ↑</a>
       </div>
     </footer>
   );

@@ -1,0 +1,147 @@
+.hero { padding-top: 29px; padding-bottom: 52px; }
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.topline > p { display: flex; align-items: center; gap: 9px; color: #64707b; font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.08em; }
+.topline > p > span { width: 5px; height: 5px; flex-shrink: 0; background: var(--blue); }
+.topline > span { color: #7a8287; font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.07em; }
+.composition { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 20px; padding-block: 28px 22px; }
+.copy { position: relative; z-index: 2; min-width: 0; padding-block: 22px; }
+.kicker { display: block; margin-bottom: 25px; color: #708095; font-size: 0.75rem; letter-spacing: 0.075em; line-height: 1.7; }
+.copy h1 { font-size: clamp(3.75rem, 6.95vw, 6.5rem); font-weight: 500; line-height: 1.04; letter-spacing: -0.065em; }
+.copy h1 > span { color: #3478df; }
+.copy > p { max-width: 430px; margin-top: 27px; color: #717a81; font-size: 1.0625rem; line-height: 1.85; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 29px; }
+.exploreButton { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 48px; padding: 13px 17px; border: 1px solid #213853; border-radius: 7px; background: #213853; color: #f2f6fd; font-size: 0.875rem; font-weight: 500; line-height: 1.5; transition: background 200ms, border-color 200ms; }
+.exploreButton:hover { background: #2b5b9a; border-color: #2b5b9a; }
+.contactLink { display: inline-block; padding-block: 10px; color: #586d85; font-size: 0.875rem; line-height: 1.6; text-decoration: underline; text-decoration-color: #bdc9d5; text-underline-offset: 5px; }
+.contactLink:hover { color: #255797; }
+.signatureNote { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; color: #7b858c; font-size: 0.75rem; line-height: 1.7; }
+.signatureNote > svg { color: #7692b9; }
+.board { position: relative; isolation: isolate; min-width: 0; height: 550px; }
+.boardSurface { position: absolute; z-index: -2; top: 7%; bottom: 8%; left: 3%; right: 0; border: 1px solid #e1e7ed; border-radius: 48% 48% 30% 45%; background: radial-gradient(ellipse at 45% 35%, #eef3fa, #e7edf5 65%, #e9edf2); transform: rotate(-7deg); }
+.boardSurface::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: radial-gradient(#6e90ba33 0.7px, transparent 0.7px); background-size: 18px 18px; mask-image: linear-gradient(90deg, #000, transparent 70%); }
+.boardMark { position: absolute; z-index: -1; top: 4%; right: 28%; width: 155px; height: 155px; color: #91afd9; transform: rotate(13deg); }
+.boardLabel { position: absolute; top: 3px; left: 15%; color: #8c98a5; font-size: 0.75rem; letter-spacing: 0.08em; }
+.tileMotion { position: absolute; will-change: transform; animation: artwork-float 13s ease-in-out infinite; }
+.tile { display: block; position: relative; overflow: hidden; width: 100%; padding: 7px; border: 1px solid #d4dbe3; border-radius: 6px; background: #fff; box-shadow: 0 16px 35px -16px #23334f59, 0 2px 6px #23334f0a; transition: transform 300ms, box-shadow 300ms; }
+.tileImage { display: block; position: relative; width: 100%; overflow: hidden; border-radius: 2px; }
+.tileImage > img { object-fit: cover; object-position: center; }
+.tileCaption { display: flex; flex-direction: column; gap: 3px; padding: 9px 4px 3px; color: #76818c; font-size: 0.75rem; line-height: 1.5; }
+.tileCaption > span:first-child { color: #415774; font-size: 0.75rem; font-weight: 500; }
+.tileMotion[data-kind="brand"] { z-index: 2; top: 12%; left: 8%; width: 35%; animation-delay: -3s; }
+.tileMotion[data-kind="brand"] .tile { transform: rotate(-11deg); }
+.tileMotion[data-kind="brand"] .tileImage { aspect-ratio: 0.707; }
+.tileMotion[data-kind="campaign"] { z-index: 3; top: 11%; right: 3%; width: 41%; animation-duration: 15s; animation-delay: -7s; }
+.tileMotion[data-kind="campaign"] .tile { transform: rotate(10deg); }
+.tileMotion[data-kind="campaign"] .tileImage { aspect-ratio: 1; }
+.tileMotion[data-kind="catalog"] { z-index: 4; bottom: 12%; left: 10%; width: 23%; animation-duration: 14s; animation-delay: -5s; }
+.tileMotion[data-kind="catalog"] .tile { transform: rotate(9deg); }
+.tileMotion[data-kind="catalog"] .tileImage { aspect-ratio: 0.707; }
+.tileMotion[data-kind="catalog"] .tileCaption > span:last-child { display: none; }
+.tileMotion[data-kind="web"] { z-index: 5; right: 0; bottom: 15%; width: 59%; animation-delay: -10s; }
+.tileMotion[data-kind="web"] .tile { padding: 6px; transform: rotate(-7deg); }
+.tileMotion[data-kind="web"] .tileImage { border-radius: 0 0 2px 2px; aspect-ratio: 1.965; }
+.browserBar { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 22px; padding-inline: 7px; border-bottom: 1px solid #e4e9ee; color: #8b96a5; }
+.browserBar > span:first-child { display: flex; gap: 3px; }
+.browserBar i { width: 3px; height: 3px; border-radius: 50%; background: #c9d1da; }
+.browserBar > span:nth-child(2) { overflow: hidden; font-size: 0.75rem; text-overflow: ellipsis; white-space: nowrap; }
+.tile:hover { box-shadow: 0 24px 45px -18px #23334f66, 0 2px 6px #23334f10; }
+@media (prefers-reduced-motion: no-preference) {
+.tileMotion[data-kind="brand"] .tile:hover, .tileMotion[data-kind="brand"] .tile:focus-visible { transform: rotate(-5deg) translateY(-5px); }
+.tileMotion[data-kind="campaign"] .tile:hover, .tileMotion[data-kind="campaign"] .tile:focus-visible { transform: rotate(5deg) translateY(-5px); }
+.tileMotion[data-kind="catalog"] .tile:hover, .tileMotion[data-kind="catalog"] .tile:focus-visible { transform: rotate(4deg) translateY(-5px); }
+.tileMotion[data-kind="web"] .tile:hover, .tileMotion[data-kind="web"] .tile:focus-visible { transform: rotate(-3deg) translateY(-5px); }
+}
+.board:hover .tileMotion, .board:focus-within .tileMotion, .hero[data-paused="true"] .tileMotion { animation-play-state: paused; }
+.studioTag { display: inline-flex; align-items: center; gap: 6px; position: absolute; z-index: 6; bottom: 4%; left: 14%; padding: 8px 11px; border: 1px solid #cddcf1; border-radius: 4px; background: #e8f0fc; color: #5f7fa8; font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.035em; transform: rotate(-4deg); }
+.motionControl { display: inline-flex; align-items: center; gap: 6px; position: absolute; z-index: 7; right: 0; bottom: 0; min-height: 32px; padding: 7px 9px; border: 1px solid #dce3eb; border-radius: 5px; background: #f8f9f7; color: #6c7e94; font-size: 0.75rem; line-height: 1.5; }
+.motionControl:hover { border-color: #9ab2d0; color: #35577f; }
+@keyframes artwork-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.heroFooter { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.heroFooter > p { color: #52657a; font-size: 0.875rem; line-height: 1.6; }
+.heroFooter > p > span { color: #7d878f; }
+.heroFooter nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.heroFooter nav > a { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 10px 13px; border: 1px solid #e0e5ea; border-radius: 6px; background: #fbfcfa; color: #65768b; font-size: 0.875rem; line-height: 1.5; transition: color 200ms, border-color 200ms, background 200ms; }
+.heroFooter nav > a:hover { border-color: #bacde6; background: #edf3fd; color: #305b94; }
+@media (max-width: 1100px) {
+  .composition { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .copy h1 { font-size: clamp(3.5rem, 7vw, 5.5rem); }
+  .copy > p { font-size: 1rem; }
+  .copy > p > br { display: none; }
+  .board { height: 480px; }
+  .tileCaption { padding: 7px 2px 2px; }
+  .tileCaption > span:last-child { display: none; }
+  .tileCaption > span:first-child { font-size: 0.75rem; }
+  .tileMotion[data-kind="brand"] { top: 16%; left: 5%; width: 37%; }
+  .tileMotion[data-kind="campaign"] { top: 15%; width: 42%; }
+  .tileMotion[data-kind="web"] { bottom: 16%; width: 59%; }
+  .tileMotion[data-kind="catalog"] { bottom: 15%; left: 8%; width: 25%; }
+  .boardLabel { top: 23px; left: 12%; }
+  .boardMark { top: 10%; right: 24%; width: 130px; height: 130px; }
+  .studioTag { left: 7%; bottom: 5%; font-size: 0.75rem; }
+  .actions { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .heroFooter { gap: 20px; }
+  .heroFooter nav { gap: 6px; }
+  .heroFooter nav > a { padding-inline: 10px; font-size: 0.875rem; }
+}
+@media (max-width: 850px) {
+  .composition { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-block: 32px 28px; }
+  .copy { padding-block: 6px 0; }
+  .copy h1 { font-size: clamp(4rem, 10.5vw, 6rem); }
+  .copy > p { max-width: 480px; font-size: 1.0625rem; }
+  .copy > p > br { display: block; }
+  .actions { flex-direction: row; align-items: center; gap: 22px; margin-top: 25px; }
+  .signatureNote { display: none; }
+  .board { width: 100%; max-width: 620px; height: 540px; margin: 0 auto; }
+  .boardSurface { top: 10%; }
+  .tileMotion[data-kind="brand"] { top: 16%; left: 10%; width: 32%; }
+  .tileMotion[data-kind="campaign"] { top: 13%; right: 7%; width: 38%; }
+  .tileMotion[data-kind="catalog"] { left: 12%; bottom: 13%; width: 23%; }
+  .tileMotion[data-kind="web"] { right: 4%; bottom: 15%; width: 55%; }
+  .tileCaption > span:first-child { font-size: 0.75rem; }
+  .boardLabel { top: 22px; left: 12%; }
+  .boardMark { top: 8%; right: 29%; width: 155px; height: 155px; }
+  .studioTag { left: 13%; bottom: 3%; font-size: 0.75rem; }
+  .motionControl { right: 3%; }
+  .heroFooter { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .heroFooter > p > br { display: none; }
+  .heroFooter > p > span { margin-left: 4px; }
+  .heroFooter nav > a { font-size: 0.875rem; }
+}
+@media (max-width: 600px) {
+  .hero { padding-top: 23px; padding-bottom: 35px; }
+  .topline { padding-bottom: 19px; }
+  .topline > p { font-size: 0.75rem; }
+  .topline > span { display: none; }
+  .composition { padding-top: 26px; padding-bottom: 22px; gap: 22px; }
+  .kicker { margin-bottom: 22px; font-size: 0.75rem; letter-spacing: 0.045em; }
+  .copy h1 { font-size: clamp(3.25rem, 12.3vw, 4.625rem); }
+  .copy > p { max-width: 370px; font-size: 1rem; margin-top: 22px; }
+  .copy > p > br { display: none; }
+  .actions { align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 23px; }
+  .exploreButton { padding-inline: 15px; }
+  .board { height: auto; aspect-ratio: 1 / 1.1; min-height: 340px; }
+  .boardSurface { top: 5%; left: 0; bottom: 8%; }
+  .boardLabel { top: 0; left: 7%; font-size: 0.75rem; letter-spacing: 0.045em; }
+  .tile { padding: 5px; }
+  .tileMotion[data-kind="brand"] { top: 14%; left: 5%; width: 35%; }
+  .tileMotion[data-kind="campaign"] { top: 12%; right: 3%; width: 40%; }
+  .tileMotion[data-kind="catalog"] { left: 8%; bottom: 13%; width: 24%; }
+  .tileMotion[data-kind="web"] { bottom: 16%; right: 0; width: 59%; }
+  .tileMotion[data-kind="web"] .tile { padding: 4px; }
+  .tileCaption { padding-top: 5px; }
+  .tileCaption > span:first-child { font-size: 0.75rem; }
+  .browserBar { height: 18px; gap: 6px; padding-inline: 5px; }
+  .browserBar > span:nth-child(2) { font-size: 0.75rem; }
+  .browserBar > svg { display: none; }
+  .boardMark { top: 7%; right: 27%; width: 100px; height: 100px; }
+  .studioTag { display: none; }
+  .studioTag > svg { width: 12px; height: 12px; }
+  .motionControl { right: 0; bottom: 0; min-height: 44px; padding: 6px 9px; font-size: 0.75rem; }
+  .heroFooter { padding-block: 21px; }
+  .heroFooter nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; width: 100%; }
+  .heroFooter nav > a { justify-content: center; padding-inline: 8px; font-size: 0.875rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero * { animation: none !important; transition: none !important; }
+  .motionControl { display: none; }
+}
