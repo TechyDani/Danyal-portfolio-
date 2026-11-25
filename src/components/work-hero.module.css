@@ -1,4 +1,5 @@
 .hero { padding-top: 29px; padding-bottom: 52px; }
+.mobileOnly { display: none; }
 .topline { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .topline > p { display: flex; align-items: center; gap: 9px; color: #64707b; font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.08em; }
 .topline > p > span { width: 5px; height: 5px; flex-shrink: 0; background: var(--blue); }
@@ -66,7 +67,7 @@
   .composition { grid-template-columns: 1fr 1fr; gap: 14px; }
   .copy h1 { font-size: clamp(3.5rem, 7vw, 5.5rem); }
   .copy > p { font-size: 1rem; }
-  .copy > p > br { display: none; }
+  .copy > p br { display: none; }
   .board { height: 480px; }
   .tileCaption { padding: 7px 2px 2px; }
   .tileCaption > span:last-child { display: none; }
@@ -88,7 +89,7 @@
   .copy { padding-block: 6px 0; }
   .copy h1 { font-size: clamp(4rem, 10.5vw, 6rem); }
   .copy > p { max-width: 480px; font-size: 1.0625rem; }
-  .copy > p > br { display: block; }
+  .copy > p br { display: block; }
   .actions { flex-direction: row; align-items: center; gap: 22px; margin-top: 25px; }
   .signatureNote { display: none; }
   .board { width: 100%; max-width: 620px; height: 540px; margin: 0 auto; }
@@ -107,39 +108,49 @@
   .heroFooter > p > span { margin-left: 4px; }
   .heroFooter nav > a { font-size: 0.875rem; }
 }
-@media (max-width: 600px) {
-  .hero { padding-top: 23px; padding-bottom: 35px; }
-  .topline { padding-bottom: 19px; }
-  .topline > p { font-size: 0.75rem; }
-  .topline > span { display: none; }
-  .composition { padding-top: 26px; padding-bottom: 22px; gap: 22px; }
-  .kicker { margin-bottom: 22px; font-size: 0.75rem; letter-spacing: 0.045em; }
-  .copy h1 { font-size: clamp(3.25rem, 12.3vw, 4.625rem); }
-  .copy > p { max-width: 370px; font-size: 1rem; margin-top: 22px; }
-  .copy > p > br { display: none; }
-  .actions { align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 23px; }
-  .exploreButton { padding-inline: 15px; }
-  .board { height: auto; aspect-ratio: 1 / 1.1; min-height: 340px; }
-  .boardSurface { top: 5%; left: 0; bottom: 8%; }
-  .boardLabel { top: 0; left: 7%; font-size: 0.75rem; letter-spacing: 0.045em; }
-  .tile { padding: 5px; }
-  .tileMotion[data-kind="brand"] { top: 14%; left: 5%; width: 35%; }
-  .tileMotion[data-kind="campaign"] { top: 12%; right: 3%; width: 40%; }
-  .tileMotion[data-kind="catalog"] { left: 8%; bottom: 13%; width: 24%; }
-  .tileMotion[data-kind="web"] { bottom: 16%; right: 0; width: 59%; }
-  .tileMotion[data-kind="web"] .tile { padding: 4px; }
-  .tileCaption { padding-top: 5px; }
-  .tileCaption > span:first-child { font-size: 0.75rem; }
-  .browserBar { height: 18px; gap: 6px; padding-inline: 5px; }
-  .browserBar > span:nth-child(2) { font-size: 0.75rem; }
-  .browserBar > svg { display: none; }
-  .boardMark { top: 7%; right: 27%; width: 100px; height: 100px; }
-  .studioTag { display: none; }
-  .studioTag > svg { width: 12px; height: 12px; }
-  .motionControl { right: 0; bottom: 0; min-height: 44px; padding: 6px 9px; font-size: 0.75rem; }
-  .heroFooter { padding-block: 21px; }
-  .heroFooter nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; width: 100%; }
-  .heroFooter nav > a { justify-content: center; padding-inline: 8px; font-size: 0.875rem; }
+@media (max-width: 760px) {
+  .hero {
+    margin-block: 6px 24px;
+    padding: 18px;
+    border: 1px solid #29374f;
+    border-radius: 16px;
+    background: #111c2e;
+    color: #f4f7fd;
+  }
+  .desktopOnly { display: none; }
+  .mobileOnly { display: inline; }
+  .topline { padding: 0; border: 0; }
+  .topline > p { color: #a6b9d6; font-size: 0.75rem; letter-spacing: 0.045em; }
+  .topline > p > span { background: #92b9ff; }
+  .topline > span, .kicker, .signatureNote { display: none; }
+  .composition { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 16px; }
+  .copy { display: contents; }
+  .copy h1 { font-size: clamp(2.75rem, 11vw, 3.5rem); line-height: 1; letter-spacing: -0.06em; }
+  .copy h1 > span { color: #92b9ff; }
+  .copy > p { max-width: 36ch; margin: 0; color: #bac8dc; font-size: 1rem; line-height: 1.5; }
+  .actions { grid-row: 4; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: stretch; gap: 8px; margin: 0; }
+  .exploreButton { min-height: 44px; padding: 10px; border-color: #dce9ff; background: #dce9ff; color: #18375f; }
+  .exploreButton:hover { border-color: #fff; background: #fff; }
+  .contactLink { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; padding: 10px 12px; border: 1px solid #536783; border-radius: 7px; color: #d0ddf0; text-decoration: none; }
+  .contactLink:hover { background: #21334d; color: #fff; }
+
+  /* Reuse the artwork as a compact, static contact sheet on phones. */
+  .board { grid-row: 3; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: none; height: auto; margin: 0; }
+  .boardSurface, .boardMark, .boardLabel, .studioTag, .motionControl, .browserBar, .tileCaption { display: none; }
+  .board .tileMotion { position: relative; inset: auto; width: auto; min-width: 0; animation: none; will-change: auto; }
+  .board .tile { height: clamp(64px, 19vw, 88px); padding: 0; border-color: #60728e; border-radius: 7px; background: #23354e; box-shadow: none; transform: none; }
+  .board .tileMotion .tile:is(:hover, :focus-visible) { box-shadow: none; transform: none; border-color: #a9c7ff; }
+  .board .tileImage { height: 100%; border-radius: inherit; aspect-ratio: auto; }
+  .board .tileImage > img { object-position: center top; }
+
+  .heroFooter { display: block; min-width: 0; padding: 8px 0 0; border-top-color: #455976; border-bottom: 0; }
+  .heroFooter > p { display: none; }
+  .heroFooter nav { flex-wrap: nowrap; gap: 6px; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; padding: 4px; scrollbar-width: thin; scrollbar-color: #607ba1 transparent; }
+  .heroFooter nav > a { flex: 1 0 auto; justify-content: center; min-height: 44px; padding: 10px 8px; border-color: transparent; background: transparent; color: #bdcce2; font-size: 0.875rem; }
+  .heroFooter nav > a:first-child { border-color: #47658c; background: #203653; color: #e1edff; }
+  .heroFooter nav > a > svg { display: none; }
+  .heroFooter nav > a:hover { border-color: #718db4; background: #263d5e; color: #fff; }
+  .hero :is(a, button):focus-visible { outline-color: #b4d0ff; outline-offset: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero * { animation: none !important; transition: none !important; }

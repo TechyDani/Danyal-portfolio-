@@ -29,10 +29,10 @@ export function WorkHero() {
         <div className={styles.copy}>
           <span className={styles.kicker}>THINK IT. MAKE IT. PUT IT OUT THERE.</span>
           <h1 id="work-hero-heading">Ideas, out<br /><span>in the wild.</span></h1>
-          <p>Design, motion, and digital experiences.<br />Different mediums. One considered point of view.</p>
+          <p><span className={styles.desktopOnly}>Design, motion, and digital experiences.<br />Different mediums. One considered point of view.</span><span className={styles.mobileOnly}>Brand identities, motion & digital experiences. Made with intention.</span></p>
           <div className={styles.actions}>
-            <a href="#work-projects" className={styles.exploreButton}><LayoutGrid size={17} strokeWidth={1.5} aria-hidden="true" /> Explore selected work</a>
-            <Link href="/contact" className={styles.contactLink}>Have a project in mind?</Link>
+            <a href="#work-projects" className={styles.exploreButton}><LayoutGrid size={17} strokeWidth={1.5} aria-hidden="true" /><span className={styles.desktopOnly}>Explore selected work</span><span className={styles.mobileOnly}>Explore work</span></a>
+            <Link href="/contact" className={styles.contactLink}><span className={styles.desktopOnly}>Have a project in mind?</span><span className={styles.mobileOnly}>Let’s talk</span></Link>
           </div>
           <div className={styles.signatureNote}><Asterisk size={27} strokeWidth={1.2} aria-hidden="true" /><span>Some bold. Some unexpected.<br />Every detail, intentional.</span></div>
         </div>
@@ -45,7 +45,7 @@ export function WorkHero() {
               <Link className={styles.tile} href={item.href} aria-label={item.accessibleName}>
                 {item.kind === "web" && <span className={styles.browserBar} aria-hidden="true"><span><i /><i /><i /></span><span>bannuccillc.com</span><Globe2 size={11} /></span>}
                 <span className={styles.tileImage}><Image src={item.image} alt={item.alt} fill
-                  sizes={item.kind === "web" ? "(max-width: 700px) 56vw, 24vw" : "(max-width: 700px) 38vw, 20vw"}
+                  sizes={item.kind === "web" ? "(max-width: 760px) 22vw, (max-width: 850px) 55vw, 24vw" : "(max-width: 760px) 22vw, (max-width: 850px) 38vw, 20vw"}
                   preload={item.kind === "brand"} loading={item.kind === "brand" ? undefined : "eager"} /></span>
                 <span className={styles.tileCaption}><span>{item.category}</span><span>{item.label}</span></span>
               </Link>
@@ -60,7 +60,7 @@ export function WorkHero() {
       </div>
       <div className={styles.heroFooter}><p>A few different ways<br /><span>to make an idea matter.</span></p><nav aria-label="Jump to a work collection">{shortcuts.map((shortcut) => {
         const Icon = shortcut.icon;
-        return <a href={shortcut.href} key={shortcut.href}><Icon size={16} strokeWidth={1.5} aria-hidden="true" />{shortcut.label}</a>;
+        return <a href={shortcut.href} key={shortcut.href}><Icon size={16} strokeWidth={1.5} aria-hidden="true" />{shortcut.href === "#work-projects" ? <><span className={styles.desktopOnly}>{shortcut.label}</span><span className={styles.mobileOnly}>Projects</span></> : shortcut.label}</a>;
       })}</nav></div>
     </section>
   );
